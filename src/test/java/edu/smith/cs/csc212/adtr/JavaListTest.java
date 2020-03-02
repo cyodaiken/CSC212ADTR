@@ -87,9 +87,170 @@ public class JavaListTest {
 		Assert.assertEquals(false, data.isEmpty());
 	}
 	
-	// TODO: test list addToBack.
-	// TODO: test list remove
-	// TODO test addIndex methods.
+
+	@Test
+	public void testRemoveFront() {
+		ListADT<String> data = makeFullList();
+		Assert.assertEquals(4, data.size());
+		Assert.assertEquals("a", data.getIndex(0));
+		Assert.assertEquals("b", data.getIndex(1));
+		Assert.assertEquals("c", data.getIndex(2));
+		Assert.assertEquals("d", data.getIndex(3));
+		Assert.assertEquals(false, data.isEmpty());
+		
+		data.removeFront();
+		Assert.assertEquals(3, data.size());
+		Assert.assertEquals("b", data.getIndex(0));
+		Assert.assertEquals("c", data.getIndex(1));
+		Assert.assertEquals("d", data.getIndex(2));
+		Assert.assertEquals(false, data.isEmpty());
+	}
+	
+	
+	
+	@Test
+	public void testRemoveBack() {
+		ListADT<String> data = makeFullList();
+		Assert.assertEquals(4, data.size());
+		Assert.assertEquals("a", data.getIndex(0));
+		Assert.assertEquals("b", data.getIndex(1));
+		Assert.assertEquals("c", data.getIndex(2));
+		Assert.assertEquals("d", data.getIndex(3));
+		Assert.assertEquals(false, data.isEmpty());
+		
+		data.removeBack();
+		Assert.assertEquals(3, data.size());
+		Assert.assertEquals("a", data.getIndex(0));
+		Assert.assertEquals("b", data.getIndex(1));
+		Assert.assertEquals("c", data.getIndex(2));
+		Assert.assertEquals(false, data.isEmpty());
+	}
+	
+	@Test
+	public void testRemoveIndex4() {
+		ListADT<String> data = makeFullList();
+		Assert.assertEquals(4, data.size());
+		Assert.assertEquals("a", data.getIndex(0));
+		Assert.assertEquals("b", data.getIndex(1));
+		Assert.assertEquals("c", data.getIndex(2));
+		Assert.assertEquals("d", data.getIndex(3));
+		Assert.assertEquals(false, data.isEmpty());
+		
+		data.removeIndex(3);
+		Assert.assertEquals(3, data.size());
+		Assert.assertEquals("a", data.getIndex(0));
+		Assert.assertEquals("b", data.getIndex(1));
+		Assert.assertEquals("c", data.getIndex(2));
+		Assert.assertEquals(false, data.isEmpty());
+		
+	}
+	
+	@Test
+	public void testRemoveIndex0() {
+		ListADT<String> data = makeFullList();
+		Assert.assertEquals(4, data.size());
+		Assert.assertEquals("a", data.getIndex(0));
+		Assert.assertEquals("b", data.getIndex(1));
+		Assert.assertEquals("c", data.getIndex(2));
+		Assert.assertEquals("d", data.getIndex(3));
+		Assert.assertEquals(false, data.isEmpty());
+		
+		data.removeIndex(0);
+		Assert.assertEquals(3, data.size());
+		Assert.assertEquals("b", data.getIndex(0));
+		Assert.assertEquals("c", data.getIndex(1));
+		Assert.assertEquals("d", data.getIndex(2));
+		Assert.assertEquals(false, data.isEmpty());
+		
+	}
+	
+	@Test
+	public void testRemoveIndex2() {
+		ListADT<String> data = makeFullList();
+		Assert.assertEquals(4, data.size());
+		Assert.assertEquals("a", data.getIndex(0));
+		Assert.assertEquals("b", data.getIndex(1));
+		Assert.assertEquals("c", data.getIndex(2));
+		Assert.assertEquals("d", data.getIndex(3));
+		Assert.assertEquals(false, data.isEmpty());
+		
+		data.removeIndex(2);
+		Assert.assertEquals(3, data.size());
+		Assert.assertEquals("a", data.getIndex(0));
+		Assert.assertEquals("b", data.getIndex(1));
+		Assert.assertEquals("d", data.getIndex(2));
+		Assert.assertEquals(false, data.isEmpty());
+		
+	}
+	
+	@Test
+	public void testAddBack() {
+		
+		ListADT<String> data = makeFullList();
+		Assert.assertEquals(4, data.size());
+		Assert.assertEquals("a", data.getIndex(0));
+		Assert.assertEquals("b", data.getIndex(1));
+		Assert.assertEquals("c", data.getIndex(2));
+		Assert.assertEquals("d", data.getIndex(3));
+		Assert.assertEquals(false, data.isEmpty());
+		
+		data.addBack("a");
+		Assert.assertEquals(5, data.size());
+		Assert.assertEquals("a", data.getIndex(0));
+		Assert.assertEquals("b", data.getIndex(1));
+		Assert.assertEquals("c", data.getIndex(2));
+		Assert.assertEquals("d", data.getIndex(3));
+		Assert.assertEquals("a", data.getIndex(4));
+		Assert.assertEquals(false, data.isEmpty());
+	}
+	
+	
+	@Test
+	public void testAddIndex() {
+		
+		ListADT<String> data = makeFullList();
+		Assert.assertEquals(4, data.size());
+		Assert.assertEquals("a", data.getIndex(0));
+		Assert.assertEquals("b", data.getIndex(1));
+		Assert.assertEquals("c", data.getIndex(2));
+		Assert.assertEquals("d", data.getIndex(3));
+		Assert.assertEquals(false, data.isEmpty());
+		
+		data.addIndex(2, "z");
+		Assert.assertEquals(5, data.size());
+		Assert.assertEquals("a", data.getIndex(0));
+		Assert.assertEquals("b", data.getIndex(1));
+		Assert.assertEquals("z", data.getIndex(2));
+		Assert.assertEquals("c", data.getIndex(3));
+		Assert.assertEquals("d", data.getIndex(4));
+		Assert.assertEquals(false, data.isEmpty());
+		
+		data.addIndex(0, "x");
+		Assert.assertEquals(6, data.size());
+		Assert.assertEquals("x", data.getIndex(0));
+		Assert.assertEquals("a", data.getIndex(1));
+		Assert.assertEquals("b", data.getIndex(2));
+		Assert.assertEquals("z", data.getIndex(3));
+		Assert.assertEquals("c", data.getIndex(4));
+		Assert.assertEquals("d", data.getIndex(5));
+		Assert.assertEquals(false, data.isEmpty());
+		
+		
+		data.addIndex(6, "x");
+		Assert.assertEquals(7, data.size());
+		Assert.assertEquals("x", data.getIndex(0));
+		Assert.assertEquals("a", data.getIndex(1));
+		Assert.assertEquals("b", data.getIndex(2));
+		Assert.assertEquals("z", data.getIndex(3));
+		Assert.assertEquals("c", data.getIndex(4));
+		Assert.assertEquals("d", data.getIndex(5));
+		Assert.assertEquals("x", data.getIndex(6));
+		Assert.assertEquals(false, data.isEmpty());
+		
+	
+	}
+	
+	
 	
 	@Test
 	public void testGetFront() {
@@ -151,7 +312,44 @@ public class JavaListTest {
 		data.addIndex(-1, "the");
 	}
 	
-	// TODO write some tests for setIndex.
+	
+	
+	@Test
+	public void testSetIndex() {
+		
+		ListADT<String> data = makeFullList();
+		Assert.assertEquals(4, data.size());
+		Assert.assertEquals("a", data.getIndex(0));
+		Assert.assertEquals("b", data.getIndex(1));
+		Assert.assertEquals("c", data.getIndex(2));
+		Assert.assertEquals("d", data.getIndex(3));
+		Assert.assertEquals(false, data.isEmpty());
+		
+		data.setIndex(2, "z");
+		Assert.assertEquals(4, data.size());
+		Assert.assertEquals("a", data.getIndex(0));
+		Assert.assertEquals("b", data.getIndex(1));
+		Assert.assertEquals("z", data.getIndex(2));
+		Assert.assertEquals("d", data.getIndex(3));
+		Assert.assertEquals(false, data.isEmpty());
+		
+		data.setIndex(0, "x");
+		Assert.assertEquals(4, data.size());
+		Assert.assertEquals("x", data.getIndex(0));
+		Assert.assertEquals("b", data.getIndex(1));
+		Assert.assertEquals("z", data.getIndex(2));
+		Assert.assertEquals("d", data.getIndex(3));
+		Assert.assertEquals(false, data.isEmpty());
+		
+		data.setIndex(3, "x");
+		Assert.assertEquals(4, data.size());
+		Assert.assertEquals("x", data.getIndex(0));
+		Assert.assertEquals("b", data.getIndex(1));
+		Assert.assertEquals("z", data.getIndex(2));
+		Assert.assertEquals("x", data.getIndex(3));
+		Assert.assertEquals(false, data.isEmpty());
+		
+	}
 	
 	@Test
 	public void testToJava() {

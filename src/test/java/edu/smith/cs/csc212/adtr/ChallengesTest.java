@@ -25,6 +25,30 @@ public class ChallengesTest {
 		expected.insert("C");
 		Assert.assertEquals(expected, Challenges.union(left, right));
 	}
+
+	@Test
+	public void testUnionEmpty() {
+		SetADT<String> left = new JavaSet<>();
+		SetADT<String> right = new JavaSet<>();
+		
+		SetADT<String> expected = new JavaSet<>();
+		Assert.assertEquals(expected, Challenges.union(left, right));	
+	}
+	
+	@Test
+	public void testUnionHalfEmpty() {
+		SetADT<String> left = new JavaSet<>();
+		SetADT<String> right = new JavaSet<>();
+		
+		left.insert("A");
+		left.insert("A");
+		left.insert("B");
+		
+		SetADT<String> expected = new JavaSet<>();
+		expected.insert("A");
+		expected.insert("B");
+		Assert.assertEquals(expected, Challenges.union(left, right));	
+	}
 	
 	@Test
 	public void testIntersectionSimple() {
@@ -42,6 +66,27 @@ public class ChallengesTest {
 	}
 	
 	@Test
+	public void testIntersectionEmpty() {
+		SetADT<String> left = new JavaSet<>();
+		SetADT<String> right = new JavaSet<>();
+		
+		SetADT<String> expected = new JavaSet<>();
+		Assert.assertEquals(expected, Challenges.intersection(left, right));
+	}
+	
+	@Test
+	public void testIntersectionHalfEmpty() {
+		SetADT<String> left = new JavaSet<>();
+		SetADT<String> right = new JavaSet<>();
+		
+		left.insert("A");
+		left.insert("B");
+		
+		SetADT<String> expected = new JavaSet<>();
+		Assert.assertEquals(expected, Challenges.intersection(left, right));
+	}
+	
+	@Test
 	public void testWordCountSimple() {
 		ListADT<String> example = new JavaList<>();
 		for (String word : new String[] {"a", "b", "a", "b", "c", "d"}) {
@@ -55,5 +100,15 @@ public class ChallengesTest {
 		
 		Assert.assertEquals(expected, Challenges.wordCount(example));
 	}
+	
+	@Test
+	public void testWordCountEmpty() {
+		ListADT<String> example = new JavaList<>();
+		
+		MapADT<String, Integer> expected = new JavaMap<>();
+		
+		Assert.assertEquals(expected, Challenges.wordCount(example));
+	}
+	
 
 }
