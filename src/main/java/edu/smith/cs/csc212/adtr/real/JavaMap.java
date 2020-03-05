@@ -27,7 +27,7 @@ public class JavaMap<K,V> extends MapADT<K,V> {
 	public JavaMap() {
 		this.data = new LinkedHashMap<K,V>();
 	}
-	
+
 	/**
 	 * Create a MapADT copied from a Java Map.
 	 * @param toCopy
@@ -35,7 +35,7 @@ public class JavaMap<K,V> extends MapADT<K,V> {
 	public JavaMap(Map<K,V> toCopy) {
 		this.data = new LinkedHashMap<K,V>(toCopy);
 	}
-	
+
 	@Override
 	public void put(K k, V v) {
 		this.data.put(k, v);		

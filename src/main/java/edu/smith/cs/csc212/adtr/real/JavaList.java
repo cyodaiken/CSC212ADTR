@@ -16,14 +16,14 @@ public class JavaList<T> extends ListADT<T> {
 	 * The Java object doing most of the work.
 	 */
 	private List<T> inner;
-	
+
 	/**
 	 * Construct an empty JavaList.
 	 */
 	public JavaList() {
 		this.inner = new ArrayList<T>();
 	}
-	
+
 	/**
 	 * Construct this list from existing data.
 	 * @param toCopy - the elements to copy.
@@ -31,7 +31,7 @@ public class JavaList<T> extends ListADT<T> {
 	public JavaList(List<T> toCopy) {
 		this.inner = new ArrayList<T>(toCopy);
 	}
-	
+
 	@Override
 	public boolean isEmpty() {
 		return inner.isEmpty();
@@ -81,7 +81,7 @@ public class JavaList<T> extends ListADT<T> {
 
 	@Override
 	public void addBack(T value) {
-			inner.add(value);		
+		inner.add(value);		
 	}
 
 	@Override
